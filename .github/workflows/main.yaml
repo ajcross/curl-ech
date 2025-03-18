@@ -26,6 +26,7 @@ jobs:
         uses: gittools/actions/gitversion/execute@v1.2.0
         with:
           useConfigFile: true
+          configFilePath: .github/GitVersion.yml
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
