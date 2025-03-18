@@ -2,6 +2,12 @@
 
 A simple Dockerfile to build and publish a container with curl with **EXPERIMENTAL** Encrypted Client Hello (ECH) enabled
 
+The resulting image is publicy available at:
+
+```
+docker.io/ajcross/curl-ech
+```
+
 it can be tested with podman:
 
 ```
