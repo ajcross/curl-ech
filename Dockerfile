@@ -1,7 +1,7 @@
 FROM ubuntu:latest AS builder
 
 RUN apt update &&  \ 
-    apt install -y git build-essential autoconf libtool libpsl-dev 
+    apt install -y git build-essential autoconf libtool libpsl-dev libnghttp2-dev
 
 RUN cd $HOME && \
     mkdir -p $HOME/code && \
@@ -16,7 +16,7 @@ RUN cd $HOME/code && \
     git clone https://github.com/curl/curl && \
     cd curl && \
     autoreconf -fi && \
-    LDFLAGS="-Wl,-rpath,$HOME/code/openssl-local-inst/lib/" ./configure --with-ssl=$HOME/code/openssl-local-inst --enable-ech && \
+    LDFLAGS="-Wl,-rpath,$HOME/code/openssl-local-inst/lib/" ./configure --with-ssl=$HOME/code/openssl-local-inst --enable-ech --with-nghttp2 && \
     make && \
     make install && \
     ldconfig 
